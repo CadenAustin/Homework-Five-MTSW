@@ -1,4 +1,5 @@
 
+from decimal import DivisionByZero
 import math
 
 ## opens a file in read mode
@@ -16,10 +17,12 @@ def openFile(filename):
 ## takes two numbers and returns
 ## the result of a division
 def numbers(num1, num2):
-    if num2 == 0:
+    try:
+        return num1 / num2
+    except ZeroDivisionError:
         raise ZeroDivisionError("Divisor can not be zero.")
-
-    return num1 / num2
+    except:
+        raise TypeError
 
 ## takes in two points
 ## finds the distance between the points
@@ -46,9 +49,11 @@ def isPalindrome(temp):
 ## has input to receive two numbers
 ## divides the two, then outputs the result
 def divide():
-    num1 = float(input("Enter a number: "))
-    num2 = float(input("Enter another number: "))
-
+    try:
+        num1 = float(input("Enter a number: "))
+        num2 = float(input("Enter another number: "))
+    except:
+        raise TypeError("Input must be numbers.")
     if num2 == 0:
         raise ZeroDivisionError
 

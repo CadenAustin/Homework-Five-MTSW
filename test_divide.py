@@ -34,3 +34,9 @@ def test_divide_with_floats(capsys, monkeypatch):
 
     stdout, stderr = capsys.readouterr()
     assert stdout.strip() == "Your numbers divided is: 1.0"
+
+def test_divide_with_bad_input(monkeypatch):
+    fake_input = FakeInput("hello", 0.25)
+    monkeypatch.setattr("builtins.input", fake_input.input)
+    with pytest.raises(TypeError):
+        divide()
