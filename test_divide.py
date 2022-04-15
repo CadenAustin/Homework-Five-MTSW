@@ -1,4 +1,3 @@
-from decimal import DivisionByZero
 import pytest
 from functions import divide
 

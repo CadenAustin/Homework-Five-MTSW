@@ -1,5 +1,3 @@
-
-from decimal import DivisionByZero
 import math
 
 ## opens a file in read mode
