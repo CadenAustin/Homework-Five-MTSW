@@ -25,7 +25,13 @@ def numbers(num1, num2):
 ## takes in two points
 ## finds the distance between the points
 def dist(x1, y1, x2, y2):
-    dist = (x2 - x1) ** 2 + (y2 - y1) ** 2
+    numberType = [int, float]
+    if (type(x1) not in numberType or 
+        type(x2) not in numberType or 
+        type(y1) not in numberType or 
+        type(y2) not in numberType):
+        raise TypeError("Points must be numerical")
+    dist = ((x2 - x1) ** 2) + ((y2 - y1) ** 2)
     dist = math.sqrt(dist)
 
     return dist
